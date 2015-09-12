@@ -81,9 +81,30 @@ public class Game
 		this.selectCount = selectCount;
 	}
 	
+	private void moveStarDown(int x, int y)
+	{
+		if (y <= 0)
+		{
+			return;
+		}
+		deck[y][x] = deck[y-1][x];
+		moveStarDown(x, y-1);
+		deck[0][x] = 0;
+	}
+	
 	public void moveDeckDown()
 	{
-		
+		for (int y = 0; y < SIZE_OF_BOARD; y++)
+		{
+			for (int x = 0; x < SIZE_OF_BOARD; x++)
+			{
+				if (deckSelected[y][x])
+				{
+					moveStarDown(x, y);
+					deckSelected[y][x] = false;
+				}
+			}
+		}
 	}
 	
 	public void moveDeckLeft()

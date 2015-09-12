@@ -57,13 +57,16 @@ public class Star
 	
 	public static void popStars(Game thisGame)
 	{
+		if (thisGame.getSelectCount() < 2)
+		{
+			return;
+		}
 		for (int i = 0; i < Game.SIZE_OF_BOARD; i++)
 		{
 			for (int j = 0; j < Game.SIZE_OF_BOARD; j++)
 			{
 				if (thisGame.getDeckSelected(i, j))
 				{
-					thisGame.setDeckSelected(i, j, false);
 					thisGame.setDeck(i, j, 0);
 				}
 			}
