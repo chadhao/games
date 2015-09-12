@@ -68,5 +68,7 @@ public class Star
 				}
 			}
 		}
+		thisGame.moveDeckDown();
+		thisGame.moveDeckLeft();
 	}
 }
