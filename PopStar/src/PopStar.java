@@ -12,6 +12,11 @@ public class PopStar
 			System.out.println(aGame);
 			Star.selectStars(aGame, keyboard.nextInt(), keyboard.nextInt(), 0);
 			Star.popStars(aGame);
+			if (aGame.isOver())
+			{
+				System.out.println("Game over!");
+				break;
+			}
 		}
 		
 	}

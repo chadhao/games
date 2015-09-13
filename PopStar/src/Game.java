@@ -136,4 +136,31 @@ public class Game
 			}
 		}
 	}
+	
+	public boolean isOver()
+	{
+		boolean isOver = true;
+		for (int i = 0; i < SIZE_OF_BOARD; i++)
+		{
+			for (int j = 0; j < SIZE_OF_BOARD; j++)
+			{
+				if (deck[i][j] != 0)
+				{
+					try{isOver = deck[i][j] == deck[i+1][j]?false:true;}catch(Exception e){}
+					try{isOver = deck[i][j] == deck[i-1][j]?false:true;}catch(Exception e){}
+					try{isOver = deck[i][j] == deck[i][j+1]?false:true;}catch(Exception e){}
+					try{isOver = deck[i][j] == deck[i][j-1]?false:true;}catch(Exception e){}
+					if (!isOver)
+					{
+						break;
+					}
+				}
+			}
+			if (!isOver)
+			{
+				break;
+			}
+		}
+		return isOver;
+	}
 }
