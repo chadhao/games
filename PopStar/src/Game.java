@@ -23,14 +23,15 @@ public class Game
 	
 	public String toString()
 	{
-		String aString = "";
+		String aString = "  | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |\n-------------------------------------------\n";
 		for (int i = 0; i < SIZE_OF_BOARD; i++)
 		{
+			aString += i + " | ";
 			for (int j = 0; j < SIZE_OF_BOARD; j++)
 			{
-				aString += deck[i][j] + " ";
+				aString += deck[i][j] + " | ";
 			}
-			aString += "\n";
+			aString += "\n-------------------------------------------\n";
 		}
 		aString += "\n";
 		
@@ -51,6 +52,7 @@ public class Game
 			aString += "\n";
 		}
 		*/
+		
 		return aString;
 	}
 	
@@ -125,11 +127,23 @@ public class Game
 	{
 		for (int i = 0; i < SIZE_OF_BOARD-1; i++)
 		{
+			boolean isRightClear = true;
 			if (deck[9][i] != 0)
 			{
 				continue;
 			}
 			moveStarLeft(i);
+			for (int j = i; j < SIZE_OF_BOARD; j++)
+			{
+				if (deck[9][j] != 0)
+				{
+					isRightClear = false;
+				}
+			}
+			if (!isRightClear && deck[9][i] == 0)
+			{
+				i--;
+			}
 			for (int j = 0; j < SIZE_OF_BOARD; j++)
 			{
 				deck[j][9] = 0;

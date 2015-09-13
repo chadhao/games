@@ -7,6 +7,18 @@ public class PopStar
 	{
 		Scanner keyboard = new Scanner(System.in);
 		Game aGame = new Game();
+		
+		for (int i = 0; i < Game.SIZE_OF_BOARD; i++)
+		{
+			for (int j = 0; j < Game.SIZE_OF_BOARD; j++)
+			{
+				if (j == 3 || j == 4 || j == 5)
+				{
+					aGame.setDeck(i, j, 1);
+				}
+			}
+		}
+		
 		while (true)
 		{
 			System.out.println(aGame);
@@ -18,6 +30,7 @@ public class PopStar
 				break;
 			}
 		}
+		System.out.println(aGame);
 		
 	}
 
