@@ -7,11 +7,13 @@ public class PopStar
 	{
 		Scanner keyboard = new Scanner(System.in);
 		Game aGame = new Game();
-		System.out.println(aGame);
-		Star.selectStars(aGame, keyboard.nextInt(), keyboard.nextInt(), 0);
-		System.out.println(aGame);
-		Star.popStars(aGame);
-		System.out.println(aGame);
+		while (true)
+		{
+			System.out.println(aGame);
+			Star.selectStars(aGame, keyboard.nextInt(), keyboard.nextInt(), 0);
+			Star.popStars(aGame);
+		}
+		
 	}
 
 }

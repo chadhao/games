@@ -33,6 +33,8 @@ public class Game
 			aString += "\n";
 		}
 		aString += "\n";
+		
+		/*
 		for (int i = 0; i < SIZE_OF_BOARD; i++)
 		{
 			for (int j = 0; j < SIZE_OF_BOARD; j++)
@@ -48,6 +50,7 @@ public class Game
 			}
 			aString += "\n";
 		}
+		*/
 		return aString;
 	}
 	
@@ -92,6 +95,17 @@ public class Game
 		deck[0][x] = 0;
 	}
 	
+	private void moveStarLeft(int x)
+	{
+		for (int i = x; i < SIZE_OF_BOARD-1; i++)
+		{
+			for (int j = 0; j < SIZE_OF_BOARD; j++)
+			{
+				deck[j][i] = deck[j][i+1];
+			}
+		}
+	}
+	
 	public void moveDeckDown()
 	{
 		for (int y = 0; y < SIZE_OF_BOARD; y++)
@@ -109,6 +123,17 @@ public class Game
 	
 	public void moveDeckLeft()
 	{
-		
+		for (int i = 0; i < SIZE_OF_BOARD-1; i++)
+		{
+			if (deck[9][i] != 0)
+			{
+				continue;
+			}
+			moveStarLeft(i);
+			for (int j = 0; j < SIZE_OF_BOARD; j++)
+			{
+				deck[j][9] = 0;
+			}
+		}
 	}
 }
