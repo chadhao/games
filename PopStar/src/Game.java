@@ -151,8 +151,6 @@ public class Game
 		}
 	}
 	
-	
-	//bugs to be fixed
 	public boolean isOver()
 	{
 		boolean isOver = true;
@@ -162,10 +160,10 @@ public class Game
 			{
 				if (deck[i][j] != 0)
 				{
-					try{isOver = deck[i][j] == deck[i+1][j]?false:true;}catch(Exception e){}
-					try{isOver = deck[i][j] == deck[i-1][j]?false:true;}catch(Exception e){}
-					try{isOver = deck[i][j] == deck[i][j+1]?false:true;}catch(Exception e){}
-					try{isOver = deck[i][j] == deck[i][j-1]?false:true;}catch(Exception e){}
+					try{isOver = deck[i][j] == deck[i+1][j]?false:isOver;}catch(Exception e){}
+					try{isOver = deck[i][j] == deck[i-1][j]?false:isOver;}catch(Exception e){}
+					try{isOver = deck[i][j] == deck[i][j+1]?false:isOver;}catch(Exception e){}
+					try{isOver = deck[i][j] == deck[i][j-1]?false:isOver;}catch(Exception e){}
 					if (!isOver)
 					{
 						break;
