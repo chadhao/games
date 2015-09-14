@@ -1,6 +1,8 @@
+import java.util.Random;
 
 public class Game {
 	private int[][] deck;
+	private Random rand;
 	
 	public Game()
 	{
@@ -12,6 +14,9 @@ public class Game {
 				deck[i][j] = 0;
 			}
 		}
+		rand = new Random();
+		fillBlock();
+		fillBlock();
 	}
 	
 	public String toString()
@@ -27,5 +32,24 @@ public class Game {
 			printDeck += "\n";
 		}
 		return printDeck;
+	}
+	
+	private int getRandom(int high)
+	{
+		return rand.nextInt(high+1);
+	}
+	
+	public void fillBlock()
+	{
+		while(true)
+		{
+			int x = getRandom(3);
+			int y = getRandom(3);
+			if (deck[x][y] == 0)
+			{
+				deck[x][y] = (getRandom(1)+1)*2;
+				break;
+			}
+		}
 	}
 }
