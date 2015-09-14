@@ -16,6 +16,12 @@ public class Player
 		this.score = 0;
 	}
 	
+	@Override
+	public String toString()
+	{
+		return name + ": " + score;
+	}
+	
 	public String getName()
 	{
 		return name;

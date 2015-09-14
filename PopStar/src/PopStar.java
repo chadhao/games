@@ -7,7 +7,9 @@ public class PopStar
 	{
 		Scanner keyboard = new Scanner(System.in);
 		Game aGame = new Game();
+		Player aPlayer = new Player("Chad");
 		
+		/*
 		for (int i = 0; i < Game.SIZE_OF_BOARD; i++)
 		{
 			for (int j = 0; j < Game.SIZE_OF_BOARD; j++)
@@ -18,12 +20,14 @@ public class PopStar
 				}
 			}
 		}
+		*/
 		
 		while (true)
 		{
 			System.out.println(aGame);
 			Star.selectStars(aGame, keyboard.nextInt(), keyboard.nextInt(), 0);
-			Star.popStars(aGame);
+			Star.popStars(aGame, aPlayer);
+			System.out.println(aPlayer);
 			if (aGame.isOver())
 			{
 				System.out.println("Game over!");

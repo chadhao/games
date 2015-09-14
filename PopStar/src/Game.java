@@ -151,6 +151,8 @@ public class Game
 		}
 	}
 	
+	
+	//bugs to be fixed
 	public boolean isOver()
 	{
 		boolean isOver = true;

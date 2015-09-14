@@ -55,7 +55,7 @@ public class Star
 		}
 	}
 	
-	public static void popStars(Game thisGame)
+	public static void popStars(Game thisGame, Player thisPlayer)
 	{
 		if (thisGame.getSelectCount() < 2)
 		{
@@ -71,6 +71,7 @@ public class Star
 				}
 			}
 		}
+		thisPlayer.setScore(thisPlayer.getScore()+(int)(thisGame.getSelectCount()*10*(thisGame.getSelectCount()*0.5)));
 		thisGame.moveDeckDown();
 		thisGame.moveDeckLeft();
 	}
