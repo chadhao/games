@@ -39,17 +39,43 @@ public class Game {
 		return rand.nextInt(high+1);
 	}
 	
-	public void fillBlock()
+	public boolean fillBlock()
 	{
-		while(true)
+		boolean isFilled = true;
+		if (!isFull())
 		{
-			int x = getRandom(3);
-			int y = getRandom(3);
-			if (deck[x][y] == 0)
+			while(true)
 			{
-				deck[x][y] = (getRandom(1)+1)*2;
-				break;
+				int x = getRandom(3);
+				int y = getRandom(3);
+				if (deck[x][y] == 0)
+				{
+					deck[x][y] = (getRandom(1)+1)*2;
+					break;
+				}
 			}
 		}
+		else
+		{
+			isFilled = false;
+		}
+		return isFilled;
+	}
+	
+	public boolean isFull()
+	{
+		boolean isFull = true;
+		for (int[] row : deck)
+		{
+			for (int element : row)
+			{
+				if (element == 0)
+				{
+					isFull = false;
+					break;
+				}
+			}
+		}
+		return isFull;
 	}
 }
