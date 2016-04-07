@@ -37,7 +37,7 @@ public class Board {
 	       if (gameBoard[i][j].isEmpty()) emptyTiles.add(gameBoard[i][j]);
 	   } 
 	}
-	emptyTiles.get(rand.nextInt(emptyTiles.size())).setValue((rand.nextInt(10)==0?2:1)*2);
+	emptyTiles.get(rand.nextInt(emptyTiles.size())).setValue((rand.nextInt(10)==0?4:2));
 	return true;
     }
     
