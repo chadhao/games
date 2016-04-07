@@ -7,7 +7,7 @@ public class Game {
 	game.printBoard();
 	System.out.println(game.isFull()?"Full":"Not Full");
 	System.out.println(game.isMovable()?"Movable":"Not movable");
-	game.mergeUp();
+	game.moveUp();
 	game.printBoard();
     }
     

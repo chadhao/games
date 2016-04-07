@@ -55,6 +55,7 @@ public class Board {
 	   System.out.println();
 	}
 	System.out.println("Score: " + score);
+	System.out.println("Steps: " + step);
     }
     
     public boolean isFull() {
@@ -83,11 +84,12 @@ public class Board {
 	return false;
     }
     
-    public void mergeUp() {
+    private void mergeUp() {
 	for(int i = 0; i < 4; i++) {
 	    for(int j = 0; j < 3; j++) {
 		if (gameBoard[j][i].isEmpty()) continue;
 		for(int k = j+1; k < 4; k++) {
+		    if (!gameBoard[k][i].isEmpty()&&gameBoard[k][i].getValue()!=gameBoard[j][i].getValue()) break;
 		    if (gameBoard[j][i].getValue()==gameBoard[k][i].getValue()) {
 			gameBoard[j][i].setValue(gameBoard[j][i].getValue()*2);
 			gameBoard[k][i].setValue(0);
@@ -97,6 +99,23 @@ public class Board {
 		}
 	    }
 	}
+    }
+    
+    public void moveUp() {
+	mergeUp();
+	for(int i = 0; i < 4; i++) {
+	    for(int j = 0; j < 3; j++) {
+		if (!gameBoard[j][i].isEmpty()) continue;
+		for(int k = j+1; k < 4; k++) {
+		    if (!gameBoard[k][i].isEmpty()) {
+			gameBoard[j][i].setValue(gameBoard[k][i].getValue());
+			gameBoard[k][i].setValue(0);
+			break;
+		    }
+		}
+	    }
+	}
+	step++;
     }
     
 }
