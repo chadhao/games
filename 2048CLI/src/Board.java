@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.Random;
 
 
@@ -24,11 +25,18 @@ public class Board {
 	
     }
     
-    private void randomFill() {
-	while(true) {
-	    int x = rand.nextInt(4);
-	    int y = rand.nextInt(4);
+    private boolean randomFill() {
+	if (isFull()) {
+	    return false;
 	}
+	ArrayList<Tile> emptyTiles = new ArrayList<>();
+	for(int i = 0; i < 4; i++) {
+	   for(int j = 0; j < 4; j++) {
+	       if (gameBoard[i][j].isEmpty()) emptyTiles.add(gameBoard[i][j]);
+	   } 
+	}
+	emptyTiles.get(rand.nextInt(emptyTiles.size())).setValue((rand.nextInt(2)+1)*2);
+	return true;
     }
     
     public void printBoard() {
