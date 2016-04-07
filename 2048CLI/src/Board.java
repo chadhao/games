@@ -27,6 +27,12 @@ public class Board {
 	randomFill();
     }
     
+    public void test() {
+	for(int i = 0; i < 14; i++) {
+	    randomFill();
+	}
+    }
+    
     private boolean randomFill() {
 	if (isFull()) {
 	    return false;
@@ -48,6 +54,7 @@ public class Board {
 	   }
 	   System.out.println();
 	}
+	System.out.println("Score: " + score);
     }
     
     public boolean isFull() {
@@ -74,6 +81,22 @@ public class Board {
 	    }
 	}
 	return false;
+    }
+    
+    public void mergeUp() {
+	for(int i = 0; i < 4; i++) {
+	    for(int j = 0; j < 3; j++) {
+		if (gameBoard[j][i].isEmpty()) continue;
+		for(int k = j+1; k < 4; k++) {
+		    if (gameBoard[j][i].getValue()==gameBoard[k][i].getValue()) {
+			gameBoard[j][i].setValue(gameBoard[j][i].getValue()*2);
+			gameBoard[k][i].setValue(0);
+			score += gameBoard[j][i].getValue();
+			break;
+		    }
+		}
+	    }
+	}
     }
     
 }
