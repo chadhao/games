@@ -19,10 +19,12 @@ public class Board {
 	       gameBoard[i][j] = new Tile(0);
 	   } 
 	}
+	init();
     }
     
     private void init() {
-	
+	randomFill();
+	randomFill();
     }
     
     private boolean randomFill() {
@@ -35,7 +37,7 @@ public class Board {
 	       if (gameBoard[i][j].isEmpty()) emptyTiles.add(gameBoard[i][j]);
 	   } 
 	}
-	emptyTiles.get(rand.nextInt(emptyTiles.size())).setValue((rand.nextInt(2)+1)*2);
+	emptyTiles.get(rand.nextInt(emptyTiles.size())).setValue((rand.nextInt(10)==0?2:1)*2);
 	return true;
     }
     
