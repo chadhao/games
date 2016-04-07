@@ -17,3 +17,11 @@ hs_err_pid*
 bin/
 .classpath
 .project
+
+nbproject/
+build/
+test/
+build.xml
+manifest.mf
+
+.DS_Store
