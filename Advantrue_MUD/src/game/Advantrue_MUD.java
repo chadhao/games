@@ -173,7 +173,7 @@ public class Advantrue_MUD {
 		printBattleCommands();
 		continue;
 	    }
-	    int monsterDamage = getRand(10, 60);
+	    int monsterDamage = getRand(5, 30);
 	    playerHealth -= monsterDamage;
 	    System.out.println("Monster made " + monsterDamage + "% damage to you!");
 	    System.out.println("You have " + (playerHealth<=0?0:playerHealth) + "% of HP left.");
