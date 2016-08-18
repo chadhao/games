@@ -133,6 +133,8 @@ public class Advantrue_MUD {
 	System.out.println("Your Health: " + playerHealth + "%");
     }
     
+    //return true when battle finished
+    //return false when ran away
     public static boolean initMonster() {
 	int monsterHealth = 100;
 	System.out.println("\n===Battle Mode===");
