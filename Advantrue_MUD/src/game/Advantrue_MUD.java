@@ -2,8 +2,6 @@ package game;
 
 import java.io.*;
 import java.util.*;
-import java.util.stream.IntStream;
-import sun.net.www.content.audio.x_aiff;
 
 public class Advantrue_MUD {
     public static Scanner keyboard = new Scanner(System.in);
